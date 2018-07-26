@@ -79,7 +79,7 @@ class MailChimp
      * @return \SmartSolutionsItaly\CakePHP\MailChimp
      * @since 1.0.0
      */
-    public function setList(string $key)
+    public function setListFromKey(string $key)
     {
         return $this->setList(Configure::read('MailChimp.lists.' . $key));
     }
