@@ -1,6 +1,6 @@
 # cakephp-mailchimp
 [![LICENSE](https://img.shields.io/github/license/smartsolutionsitaly/cakephp-mailchimp.svg)](LICENSE)
-[![packagist](https://img.shields.io/badge/packagist-smartsolutionsitaly%2Fcakephp--recaptcha-brightgreen.svg)](https://packagist.org/packages/smartsolutionsitaly/cakephp-mailchimp)
+[![packagist](https://img.shields.io/badge/packagist-smartsolutionsitaly%2Fcakephp-locale-selector-middleware-brightgreen.svg)](https://packagist.org/packages/smartsolutionsitaly/cakephp-mailchimp)
 [![issues](https://img.shields.io/github/issues/smartsolutionsitaly/cakephp-mailchimp.svg)](https://github.com/smartsolutionsitaly/cakephp-mailchimp/issues)
 [![CakePHP](https://img.shields.io/badge/CakePHP-3.5%2B-brightgreen.svg)](https://github.com/cakephp/cakephp)
 
