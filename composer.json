@@ -1,40 +1,43 @@
 {
-	"name" : "smartsolutionsitaly/cakephp-mailchimp",
-	"description" : "MailChimp connector for CakePHP",
-	"keywords" : [
-		"cakephp",
-		"connector",
-		"mailchimp",
-		"utility"
-	],
-	"type" : "cakephp-plugin",
-	"license" : "MIT",
-	"require-dev" : {
-		"cakephp/cakephp" : "^3.5"
-	},
-	"autoload" : {
-		"psr-4" : {
-			"SmartSolutionsItaly\\CakePHP\\MailChimp\\" : "src"
-		}
-	},
-	"autoload-dev" : {
-		"psr-4" : {
-			"SmartSolutionsItaly\\CakePHP\\MailChimp\\Test\\" : "tests",
-			"Cake\\Test\\" : "./vendor/cakephp/cakephp/tests"
-		}
-	},
-	"homepage" : "https://github.com/smartsolutionsitaly/cakephp-mailchimp",
-	"authors" : [{
-			"name" : "Lucio Benini",
-			"email" : "dev@smartsolutions.it",
-			"homepage" : "https://smartsolutions.it",
-			"role" : "Web Developer"
-		}
-	],
-	"support" : {
-		"email" : "info@smartsolutions.it",
-		"issues" : "https://github.com/smartsolutionsitaly/cakephp-mailchimp/issues",
-		"wiki" : "https://github.com/smartsolutionsitaly/cakephp-mailchimp/wiki",
-		"source" : "https://github.com/smartsolutionsitaly/cakephp-mailchimp"
-	}
+  "name" : "smartsolutionsitaly/cakephp-mailchimp",
+  "description" : "MailChimp connector for CakePHP",
+  "keywords" : [
+    "cakephp",
+    "connector",
+    "mailchimp",
+    "utility"
+  ],
+  "type" : "cakephp-plugin",
+  "license" : "MIT",
+  "require" : {
+    "php" : "^7.0"
+  },
+  "require-dev" : {
+    "cakephp/cakephp" : "^3.5"
+  },
+  "autoload" : {
+    "psr-4" : {
+      "SmartSolutionsItaly\\CakePHP\\MailChimp\\Http\\Client" : "src"
+    }
+  },
+  "autoload-dev" : {
+    "psr-4" : {
+      "SmartSolutionsItaly\\CakePHP\\MailChimp\\Http\\Client" : "tests",
+      "Cake\\Test\\" : "./vendor/cakephp/cakephp/tests"
+    }
+  },
+  "homepage" : "https://github.com/smartsolutionsitaly/cakephp-mailchimp",
+  "authors" : [{
+    "name" : "Lucio Benini",
+    "email" : "dev@smartsolutions.it",
+    "homepage" : "https://smartsolutions.it",
+    "role" : "Web Developer"
+  }
+  ],
+  "support" : {
+    "email" : "info@smartsolutions.it",
+    "issues" : "https://github.com/smartsolutionsitaly/cakephp-mailchimp/issues",
+    "wiki" : "https://github.com/smartsolutionsitaly/cakephp-mailchimp/wiki",
+    "source" : "https://github.com/smartsolutionsitaly/cakephp-mailchimp"
+  }
 }

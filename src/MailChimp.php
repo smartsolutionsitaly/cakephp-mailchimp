@@ -17,7 +17,8 @@
  * @link      https://smartsolutions.it Smart Solutions
  * @since     1.0.0
  */
-namespace SmartSolutionsItaly\CakePHP\MailChimp\Utility;
+
+namespace SmartSolutionsItaly\CakePHP\MailChimp\Http\Client;
 
 use Cake\Core\Configure;
 use Cake\Http\Client;
@@ -28,16 +29,14 @@ use Exception;
 
 /**
  * MailChimp connector.
- *
+ * @package SmartSolutionsItaly\CakePHP\MailChimp\Http\Client
  * @author Lucio Benini <dev@smartsolutions.it>
  * @since 1.0.0
  */
 class MailChimp
 {
-
     /**
      * HTTP client.
-     *
      * @var \Cake\Http\Client
      * @since 1.0.0
      */
@@ -45,7 +44,6 @@ class MailChimp
 
     /**
      * List ID.
-     *
      * @var string
      * @since 1.0.0
      */
@@ -53,7 +51,6 @@ class MailChimp
 
     /**
      * Constructor.
-     *
      * @since 1.0.0
      */
     public function __construct()
@@ -73,10 +70,8 @@ class MailChimp
 
     /**
      * Sets the MailChimp's list from the configuration file.
-     *
-     * @param string $key
-     *            The key as setted in the configuration file.
-     * @return \SmartSolutionsItaly\CakePHP\MailChimp
+     * @param string $key The key as setted in the configuration file.
+     * @return MailChimp
      * @since 1.0.0
      */
     public function setListFromKey(string $key)
@@ -86,10 +81,8 @@ class MailChimp
 
     /**
      * Sets the MailChimp's list.
-     *
-     * @param string $name
-     *            The list name.
-     * @return \SmartSolutionsItaly\CakePHP\MailChimp
+     * @param string $name The list name.
+     * @return MailChimp
      * @since 1.0.0
      */
     public function setList(string $name)
@@ -101,7 +94,6 @@ class MailChimp
 
     /**
      * Gets the MailChimp's list.
-     *
      * @return string The list name.
      * @since 1.0.0
      */
@@ -112,10 +104,8 @@ class MailChimp
 
     /**
      * Gets the status of a subscription.
-     *
-     * @param string $email
-     *            The subscriber's e-mail.
-     * @return object|NULL Returns the MailChimp's response or NULL.
+     * @param string $email The subscriber's e-mail.
+     * @return mixed|null Returns the MailChimp's response or a null value.
      * @since 1.0.0
      */
     public function status(string $email)
@@ -135,16 +125,11 @@ class MailChimp
 
     /**
      * Unsubscribe the subscriber with the given e-mail from a list.
-     *
-     * @param string $email
-     *            The subscriber's e-mail.
-     * @param array $fields
-     *            The "merge" fields.
-     * @param unknown $language
-     *            The subscriber's language.
-     * @param unknown $ip
-     *            The subscriber's IP.
-     * @return object|NULL Returns the MailChimp's response or NULL.
+     * @param string $email The subscriber's e-mail.
+     * @param array $fields The "merge" fields.
+     * @param string $language The subscriber's language.
+     * @param string $ip The subscriber's IP.
+     * @return mixed|null Returns the MailChimp's response or a null value.
      * @since 1.0.0
      */
     public function subscribe(string $email, array $fields = [], $language = null, $ip = null)
@@ -155,18 +140,18 @@ class MailChimp
                 'status' => 'subscribed'
             ];
 
-            if (! empty($fields)) {
+            if (!empty($fields)) {
                 $vars['merge_fields'] = $fields;
             }
 
-            if (! $language) {
+            if (!$language) {
                 $language = Configure::read('App.defaultLocale');
             }
 
             if ($language) {
                 $language = explode('_', $language, 2);
 
-                if (! empty($language[0])) {
+                if (!empty($language[0])) {
                     $vars['language'] = $language[0];
                 }
             }
@@ -190,10 +175,8 @@ class MailChimp
 
     /**
      * Unsubscribes the subscriber with the given e-mail from a list.
-     *
-     * @param string $email
-     *            The subscriber's e-mail.
-     * @return object|NULL Returns the MailChimp's response or NULL.
+     * @param string $email The subscriber's e-mail.
+     * @return mixed|null Returns the MailChimp's response or a null value.
      * @since 1.0.0
      */
     public function unsubscribe(string $email)
@@ -215,10 +198,8 @@ class MailChimp
 
     /**
      * Deletes the subscriber with the given e-mail from a list.
-     *
-     * @param string $email
-     *            The subscriber's e-mail.
-     * @return object|NULL Returns the MailChimp's response or NULL.
+     * @param string $email The subscriber's e-mail.
+     * @return mixed|null Returns the MailChimp's response or a null value.
      * @since 1.0.0
      */
     public function delete(string $email)
@@ -236,12 +217,11 @@ class MailChimp
         return null;
     }
 
+
     /**
      * Converts a response content to its object representation.
-     *
-     * @param \Cake\Http\Client\Response $res
-     *            The response object to process.
-     * @return object|NULL The response content to its object representation or NULL.
+     * @param Response $res The response object to process.
+     * @return mixed|null The response content to its object representation or a null value.
      * @since 1.0.0
      */
     protected static function processResponse(Response $res)

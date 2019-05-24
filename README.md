@@ -34,4 +34,4 @@ For full copyright and license information, please see the [LICENSE](LICENSE)
 Redistributions of files must retain the above copyright notice.
 
 ## Copyright
-Copyright (c) 2018 Smart Solutions S.r.l. (https://smartsolutions.it)
+Copyright (c) 2018-2019 Smart Solutions S.r.l. (https://smartsolutions.it)
