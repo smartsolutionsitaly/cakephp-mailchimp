@@ -17,12 +17,12 @@
   },
   "autoload" : {
     "psr-4" : {
-      "SmartSolutionsItaly\\CakePHP\\MailChimp\\Http\\Client" : "src"
+      "SmartSolutionsItaly\\CakePHP\\MailChimp\\Http\\Client\\" : "src"
     }
   },
   "autoload-dev" : {
     "psr-4" : {
-      "SmartSolutionsItaly\\CakePHP\\MailChimp\\Http\\Client" : "tests",
+      "SmartSolutionsItaly\\CakePHP\\MailChimp\\Http\\Client\\" : "tests",
       "Cake\\Test\\" : "./vendor/cakephp/cakephp/tests"
     }
   },
