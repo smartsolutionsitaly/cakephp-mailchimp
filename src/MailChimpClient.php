@@ -28,12 +28,12 @@ use Cake\Validation\Validation;
 use Exception;
 
 /**
- * MailChimp connector.
+ * MailChimp client.
  * @package SmartSolutionsItaly\CakePHP\MailChimp\Http\Client
  * @author Lucio Benini <dev@smartsolutions.it>
  * @since 1.0.0
  */
-class MailChimp
+class MailChimpClient
 {
     /**
      * HTTP client.
@@ -71,7 +71,7 @@ class MailChimp
     /**
      * Sets the MailChimp's list from the configuration file.
      * @param string $key The key as setted in the configuration file.
-     * @return MailChimp
+     * @return MailChimpClient
      * @since 1.0.0
      */
     public function setListFromKey(string $key)
