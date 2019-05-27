@@ -37,7 +37,7 @@ class MailChimpClient
 {
     /**
      * HTTP client.
-     * @var \Cake\Http\Client
+     * @var Client
      * @since 1.0.0
      */
     protected $_client;
@@ -71,35 +71,12 @@ class MailChimpClient
     /**
      * Sets the MailChimp's list from the configuration file.
      * @param string $key The key as setted in the configuration file.
-     * @return MailChimpClient
+     * @return MailChimpClient The current instance.
      * @since 1.0.0
      */
-    public function setListFromKey(string $key)
+    public function setListFromKey(string $key): MailChimpClient
     {
         return $this->setList(Configure::read('MailChimp.lists.' . $key));
-    }
-
-    /**
-     * Sets the MailChimp's list.
-     * @param string $name The list name.
-     * @return MailChimp
-     * @since 1.0.0
-     */
-    public function setList(string $name)
-    {
-        $this->_list = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets the MailChimp's list.
-     * @return string The list name.
-     * @since 1.0.0
-     */
-    public function getList()
-    {
-        return $this->_list;
     }
 
     /**
@@ -121,6 +98,46 @@ class MailChimpClient
         }
 
         return null;
+    }
+
+    /**
+     * Gets the MailChimp's list.
+     * @return string The list name.
+     * @since 1.0.0
+     */
+    public function getList()
+    {
+        return $this->_list;
+    }
+
+    /**
+     * Sets the MailChimp's list.
+     * @param string $name The list name.
+     * @return MailChimpClient The current instance.
+     * @since 1.0.0
+     */
+    public function setList(string $name): MailChimpClient
+    {
+        $this->_list = $name;
+
+        return $this;
+    }
+
+    /**
+     * Converts a response content to its object representation.
+     * @param Response $res The response object to process.
+     * @return mixed|null The response content to its object representation or a null value.
+     * @since 1.0.0
+     */
+    protected static function processResponse(Response $res)
+    {
+        $code = $res->getStatusCode();
+
+        if ($code >= 200 && $code < 300) {
+            return json_decode($res->getBody()->getContents());
+        } else {
+            return null;
+        }
     }
 
     /**
@@ -215,23 +232,5 @@ class MailChimpClient
         }
 
         return null;
-    }
-
-
-    /**
-     * Converts a response content to its object representation.
-     * @param Response $res The response object to process.
-     * @return mixed|null The response content to its object representation or a null value.
-     * @since 1.0.0
-     */
-    protected static function processResponse(Response $res)
-    {
-        $code = $res->getStatusCode();
-
-        if ($code >= 200 && $code < 300) {
-            return json_decode($res->getBody()->getContents());
-        } else {
-            return null;
-        }
     }
 }
